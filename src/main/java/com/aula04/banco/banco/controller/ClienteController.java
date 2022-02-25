@@ -65,4 +65,11 @@ public class ClienteController {
 
         return ResponseEntity.ok(new ResponseCliente(cliente));
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<ResponseCliente> excluirCliente(@PathVariable UUID id) {
+        List<Cliente> clientes = bancoCliente.buscaClientes();
+        bancoCliente.removerCliente(id);
+        return ResponseEntity.noContent().build();
+    }
 }

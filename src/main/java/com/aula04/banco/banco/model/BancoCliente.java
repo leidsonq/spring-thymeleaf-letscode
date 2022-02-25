@@ -34,4 +34,19 @@ public class BancoCliente {
                 });
         return detalhesCliente(id);
     }
+
+    public void removerCliente (UUID id) {
+        Cliente cliente = buscarPorId(id);
+        clientes.remove(cliente);
+    }
+
+    public Cliente buscarPorId(UUID id) {
+        Cliente cliente = null;
+        for (Cliente cli: clientes) {
+            if(cli.getId().equals(id)) {
+                cliente = cli;
+            }
+        }
+        return cliente;
+    }
 }
